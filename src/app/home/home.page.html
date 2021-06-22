@@ -21,7 +21,7 @@
         </ion-button>
     </div>
     <div class="menu-list" *ngIf="!userAny">
-        <span>Login Google</span>
+        <span>Login</span>
 
     </div>
 
@@ -340,7 +340,7 @@ background-size: cover; {{splashScreen}} ">
                                         <ion-button style="    margin-left: auto;
                                       margin-right: auto;
                                       --border-radius: 20px;
-                                      margin-top: 5%;font-weight: 600;" (click)="onLoginGoogle()">Login Google
+                                      margin-top: 5%;font-weight: 600;" (click)="onLoginGoogle()">Login
                                             <ion-icon slot="start" name="logo-google"></ion-icon>
                                         </ion-button>
 
@@ -791,7 +791,7 @@ background-size: cover; {{splashScreen}} ">
                                 <img src="../../assets/acc-fotos/portada.jpg" alt="">
                             </div>
                             <div class="juego-titl">
-                                <h3>Apuestale Con Cariño</h3>
+                                <h3 *ngIf="accConfig"> {{accConfig.name}} </h3>
                                 <div class="sub-info">
                                     <span *ngIf="salaAllArray">Salas Activas: {{salaAllArray.length}} </span>
                                 </div>

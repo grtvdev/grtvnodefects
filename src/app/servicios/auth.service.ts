@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
 
 import firebase from 'firebase/app';
 import { ToastController } from '@ionic/angular';
-import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +16,7 @@ export class AuthService {
 
 public user$:Observable<User>;
   constructor(public toastController: ToastController,public afAuth:AngularFireAuth, 
-    private afs:AngularFirestore, private router: Router, private googleAuth : GooglePlus) {
+    private afs:AngularFirestore, private router: Router) {
     this.user$ = this.afAuth.authState.pipe(
       switchMap((user)=>{
         if (user){
@@ -79,6 +78,8 @@ public user$:Observable<User>;
   }
 
  async loginAndroidGoogle(){
+
+  /*
     return this.googleAuth.login({}).then(result=>{
       const user_data_google = result //data
 
@@ -92,6 +93,7 @@ public user$:Observable<User>;
      return   this.afAuth.signInWithCredential(firebase.auth.GoogleAuthProvider.credential(null,user_data_google.accessToken))
 
     })
+    */
   }
   private updateUserData(user:User){
     const userRef:AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);

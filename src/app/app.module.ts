@@ -22,7 +22,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule} from '@angular/fire/firestore';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 // pdf 
-import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import { Downloader } from '@ionic-native/downloader/ngx';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
@@ -30,7 +29,7 @@ import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 //Pipes
 import { SafePipe } from './pipes/safe.pipe';
 import { PipeModule } from './pipes/pipe/pipe/pipe.module';
-import { GooglePlus } from '@ionic-native/google-plus/ngx';
+//import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { AddEpisodioComponent } from './admin/add-episodio/add-episodio.component';
 import { LoginemailComponent } from './modales/loginemail/loginemail.component';
 import { HipodromoadminComponent } from './admin/hipodromoadmin/hipodromoadmin.component';
@@ -42,11 +41,10 @@ import { EncuestasComponent } from './modales/encuestas/encuestas.component';
     GacetaComponent, LoginemailComponent,HipodromoadminComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,FormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAnalyticsModule,
-    PdfViewerModule,PipeModule,
+    AngularFireAnalyticsModule,PipeModule,
  
    AngularFireAuthModule, AngularFirestoreModule],
-  providers: [GooglePlus,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },Downloader, InAppBrowser],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },Downloader, InAppBrowser],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

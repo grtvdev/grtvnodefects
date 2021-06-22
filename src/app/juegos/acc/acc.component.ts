@@ -656,6 +656,8 @@ console.log('comenzando countdownGame')
   }
 
   async onLoginGoogle(){
+
+    /*
     try{
       this.auth.loginAndroidGoogle().then(i=>{
 
@@ -675,7 +677,7 @@ console.log('comenzando countdownGame')
 
      
     }
-    catch(error){console.log(error)}
+    catch(error){console.log(error)}*/
   }
   entrarASalaPrivada(){
     this.entrarSalaP = true

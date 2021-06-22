@@ -103,6 +103,7 @@ export class HomePage {
   public ProgramaName : any;
   public episodioDestacadoOtros : any;
   public encuestas:any;
+  public accConfig : any;
   episodios={
     initialSlide: 0,
     slidesPerView: 6,
@@ -163,6 +164,10 @@ export class HomePage {
 
 
   )
+
+  this.db.collection('apuestaleConfig').doc('9zdC6WoidzO2fJOHG7Qr').valueChanges().subscribe(item=>{
+    this.accConfig = item
+  })
 
   this.appSer.salaALL().subscribe(item =>{
     this.salaAllArray = item
@@ -685,6 +690,8 @@ export class HomePage {
   }
 
   openAddEpisodio(){
+
+    this.player.pause()
     this.modal.create({
       component: AddEpisodioComponent,
       cssClass:'my-custom-class',
@@ -701,6 +708,7 @@ export class HomePage {
   }
 
   openAdminHipodromo(){
+    this.player.pause()
     this.modal.create({
       component: HipodromoadminComponent,
       cssClass:'my-custom-class',
@@ -1521,6 +1529,8 @@ GacetaToSearchClose(){
     toast.present();
   }
   async onLoginGoogle(){
+
+    /*
     try{
      this.auth.loginAndroidGoogle().then(i=>{
 
@@ -1544,7 +1554,7 @@ GacetaToSearchClose(){
       })
      
     }
-    catch(error){console.log(error)}
+    catch(error){console.log(error)}*/
   }
 
   getLink(){
